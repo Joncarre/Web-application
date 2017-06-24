@@ -40,12 +40,12 @@ Al entar en el planificador ya podemos consultar los cursos disponibles sin nece
 
 Cuando hacemos la búsqueda de cursos, dicha búsqueda realiza una comprobación en la base de datos y muestra todos los cursos que contengan, en su título, la cadena buscada. Si por ejemplo buscamos *cocina*, apareceran todos los resultados que contengan esa palabra.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador/images/imagen1.png)
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen1.png)
 
 Si pinchamos sobre un curso podemos ver información acerca del mismo, pero como es lógico, no nos dejará inscribirnos hasta que no estemos registrados.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador/images/imagen2.png)
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen2.png)
 
 Una vez registrados, podemos empezar a crear cursos que puedan interesar a otro usuarios de la aplicación. Además, el sistema organiza los cursos de tal forma que sea fácil para el usuario consultar los cursos que ya ha terminado, los que está cursando actualmente y qué horario tiene establecido para cada semana.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador/images/imagen3.png)
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen3.png)
