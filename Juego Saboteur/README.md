@@ -36,11 +36,11 @@ El resto de ficheros contienen información acerca del proyecto (.json), la base
 
 En este juego cada jugador toma el papel de un enano que busca oro en una mina. La mina se representa como un tablero de siete filas y siete columnas. 
 
-IMAGEN 1
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s1.png)
 
 Los jugadores parten de una casilla de salida que se encuentra en la celda situada en la fila central, primera columna. En la última columna (filas 2a, 4a y 6a) existen tres casillas de destino. Inicialmente el contenido de esas casillas es desconocido. Lo único que los jugadores conocen es que una de ellas contiene una pepita de oro y las dos restantes no contienen nada.
 
-IMAGEN 2
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s2.png)
 
 Existen dos clases de jugadores: enanos buscadores y enanos saboteadores. Cada jugador recibe un rol (buscador o saboteador) al principio de la partida, y este rol permanece secreto para los demás jugadores. Los buscadores y los saboteadores tienen objetivos contrapuestos: 
 
@@ -51,23 +51,23 @@ El juego transcurre por turnos. El jugador que tiene el turno puede realizar una
 
 - Colocar una de sus cartas en el tablero: para colocar una de sus cartas en el tablero debe cumplirse (a) las grutas de la carta nueva encajan con algunas de las grutas que ya hay puestas y (b) la carta nueva debe ser alcanzable desde la casilla de salida.
 
-IMAGEN 3
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s3.png)
 
 Tras haber colocado una carta, el jugador recibirá una carta nueva generada aleatoriamente.
 
 - Desechar una de sus cartas: A cada jugador/a se le reparte un total de 7 cartas de entre las 15 posibles que pueden tocarle. El jugador eliminará una de sus cartas (la que él/ella desee), recibiendo a continuación otra carta generada aleatoriamente.
 
-IMAGEN 4
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s4.png)
 
 - Utilizar una carta especial entre lupa (mira una casilla del tablero), explosivo (rompe una carta de gruta), romper herramienta (bloquear a un jugador) o arreglar herramienta (desbloquear a un jugador).
 
-IMAGEN 5
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s5.png)
 
 Todo esto es gestionado por un sistema de login que permite a los usuarios consultar en todo momento las partidas en las que están jugando, las partidas que se han creado y a las que pueden unirse y las partidas ya terminadas (con el resultado si ganaron o no dichas partidas).
 
-IMAGEN 6
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s6.png)
 
 En cualquier momento, un usuario podría crear su propia partida (en la que participaría como si fuese un jugador más).
 
-IMAGEN 7
+![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s7.png)
 
