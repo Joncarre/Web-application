@@ -4,70 +4,69 @@
 ==============
 ----------
 
-Este proyecto consiste en el desarrollo de un portal web que permita a los usuarios jugar en línea a un juego de mesa llamado *Saboteur*. En este portal, un usuario/a podrá crear una cuenta de usuario, crear nuevas partidas, unirse a partidas ya creadas por otros y, obviamente, jugar en ellas.
+This project consists of the development of a web portal that allows users to play online a board game called *Saboteur*. In this portal, a user will be able to create a user account, create new games, join games already created by others and, obviously, play in them.
 
-## Competencias e implementación
+## Competencies and implementation
 ---------------------------
 
-Diseño de páginas web mediante HTML y CSS, además de una implementación en el servidor web utilizando *Node* y *Express.js*.
-Al contrario que en el Planificador, no está permitido el uso de *Bootstrap* en el desarollo del juego.
+Web page design using HTML and CSS, plus a web server implementation using *Node* and *Express.js*. Unlike the Planner, the use of *Bootstrap* is not allowed in the development of the game.
 
-## Resumen de la estructura del proyecto por carpetas
+## Summary of the project structure by folder
 ---------------------------
 
-**controllers:** son los ficheros donde se lleva a cabo la recogida de peticiones que va realizando el usuario al servidor a medida que interactúa con la aplicación.
+**controllers:** are the files where the collection of requests made by the user to the server as he/she interacts with the application is carried out.
 
-**helpers:** conjunto de métodos que ayudan a formar la vista y que, mayoritariamente, son comunes a gran parte del proyecto.
+**Helpers:** set of methods that help to form the view and that, mostly, are common to a great part of the project.
 
-**integration:** aquí se almacenan los Data Access Object que recuperan e insertan información a la base de datos (pues se encuentran en la capa de integración).
+**integration:** Data Access Objects that retrieve and insert information to the database are stored here (as they are in the integration layer).
 
-**middlewares:** es la división en la que se basa *Express.js*. Un middleware es una función que recibe un objeto *request* con los datos de la petición del usuario y un objeto *response* con la respuesta acumulada hasta el momento. Durante la ejecución, un middleware puede leer/modificar ambos objetos.
+**middlewares:** is the division on which *Express.js* is based. A middleware is a function that receives a *request* object with the user's request data and a *response* object with the response accumulated so far. During execution, a middleware can read/modify both objects.
 
-**nbproject:** ficheros internos que usa *NetBeans* (IDE utilizado para el desarrollo de la aplicación).
+**nbproject:** internal files used by *NetBeans* (IDE used for application development).
 
-**public:** aquí se encuentran los ficheros públicos del proyecto, es decir, aquellos recursos necesarios que son directamente expuestos ante el cliente. Algunos ficheros contenidos son: la página *index*, fuentes, el CSS de la aplicación, imágenes usadas, etc.
+**public:** here are the public files of the project, that is to say, those necessary resources that are directly exposed to the client. Some of the files contained are: the *index* page, fonts, the CSS of the application, images used, etc.
 
-**views:** son los ficheros .ejs, los cuales mezclarán el modelo (datos) con la vista (HTML) para ser representados adecuadamente cuando estemos jugando.
+**views:** are the .ejs files, which will mix the model (data) with the view (HTML) to be properly represented when we are playing.
 
-El resto de ficheros contienen información acerca del proyecto (.json), la base de datos utilizada (.sql) o el punto de entrada en el flujo de ejecución de la aplicación (app.js).
+The rest of the files contain information about the project (.json), the database used (.sql) or the entry point in the application execution flow (app.js).
 
-## Guía básica de uso
----------------------------
+## Basic user guide
+----------------------
 
-En este juego cada jugador toma el papel de un enano que busca oro en una mina. La mina se representa como un tablero de siete filas y siete columnas. 
+In this game each player takes the role of a dwarf searching for gold in a mine. The mine is represented as a board with seven rows and seven columns. 
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s1.png)
 
-Los jugadores parten de una casilla de salida que se encuentra en la celda situada en la fila central, primera columna. En la última columna (filas 2a, 4a y 6a) existen tres casillas de destino. Inicialmente el contenido de esas casillas es desconocido. Lo único que los jugadores conocen es que una de ellas contiene una pepita de oro y las dos restantes no contienen nada.
+The players start from a starting square which is located in the cell located in the middle row, first column. In the last column (rows 2a, 4a and 6a) there are three destination cells. Initially the contents of these cells are unknown. The only thing the players know is that one of them contains a gold nugget and the other two contain nothing.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s2.png)
 
-Existen dos clases de jugadores: enanos buscadores y enanos saboteadores. Cada jugador recibe un rol (buscador o saboteador) al principio de la partida, y este rol permanece secreto para los demás jugadores. Los buscadores y los saboteadores tienen objetivos contrapuestos: 
+There are two classes of players: dwarf prospectors and dwarf saboteurs. Each player is given a role (seeker or saboteur) at the beginning of the game, and this role remains secret to the other players. Seekers and saboteurs have opposing objectives: 
 
-- Los buscadores tienen como objetivo construir grutas a lo largo del tablero con el fin de llegar a la casilla de destino que contenga la pepita de oro.
-- Los saboteadores tienen como objetivo bloquear y desviar las grutas de los enanos buscadores con el fin de que éstos no consigan la pepita de oro.
+- Seekers aim to build grottoes along the board in order to reach the destination square containing the gold nugget.
+- The saboteurs have the objective of blocking and diverting the dwarf prospectors' caves so that they do not get the gold nugget.
 
-El juego transcurre por turnos. El jugador que tiene el turno puede realizar una de las siguientes acciones:
+The game is played in turns. The player whose turn it is can do one of the following actions:
 
-- Colocar una de sus cartas en el tablero: para colocar una de sus cartas en el tablero debe cumplirse (a) las grutas de la carta nueva encajan con algunas de las grutas que ya hay puestas y (b) la carta nueva debe ser alcanzable desde la casilla de salida.
+- Place one of his cards on the board: to place one of his cards on the board it must be fulfilled (a) the grottoes of the new card fit with some of the grottoes already placed and (b) the new card must be reachable from the starting square.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s3.png)
 
-Tras haber colocado una carta, el jugador recibirá una carta nueva generada aleatoriamente.
+After having placed a card, the player will receive a new randomly generated card.
 
-- Desechar una de sus cartas: A cada jugador/a se le reparte un total de 7 cartas de entre las 15 posibles que pueden tocarle. El jugador eliminará una de sus cartas (la que él/ella desee), recibiendo a continuación otra carta generada aleatoriamente.
+- Discard one of his/her cards: Each player is dealt a total of 7 cards out of the 15 possible cards he/she can play. The player will discard one of his/her cards (the one he/she wishes), and will then receive another randomly generated card.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s4.png)
 
-- Utilizar una carta especial entre lupa (mira una casilla del tablero), explosivo (rompe una carta de gruta), romper herramienta (bloquear a un jugador) o arreglar herramienta (desbloquear a un jugador).
+- Use a special card between magnifying glass (look at a square on the board), explosive (break a grotto card), break tool (block a player) or fix tool (unblock a player).
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s5.png)
 
-Todo esto es gestionado por un sistema de login que permite a los usuarios consultar en todo momento las partidas en las que están jugando, las partidas que se han creado y a las que pueden unirse y las partidas ya terminadas (con el resultado si ganaron o no dichas partidas).
+All this is managed by a login system that allows users to consult at any time the games they are playing, the games that have been created and that they can join and the games already finished (with the result if they won or not).
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s6.png)
 
-En cualquier momento, un usuario podría crear su propia partida (en la que participaría como si fuese un jugador más).
+At any time, a user could create his own game (in which he would participate as if he were another player).
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s7.png)
 
