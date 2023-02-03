@@ -1,51 +1,51 @@
 <!--Creado por Jonathan Carrero Aranda -->
 
-**Planificador de cursos**
+**Course scheduler**
 ==============
 ----------
      
-En este pequeño proyecto se implementa una aplicación web muy básica para gestionar cursos presenciales de diversa índole: programación, cocina, baile, música, etc. El servidor contendrá una base de datos con cursos disponibles. Los usuarios de la aplicación pueden buscar un determinado curso a partir de su nombre y registrarse en uno o varios cursos.
+In this small project we implement a very basic web application to manage classroom courses of various kinds: programming, cooking, dance, music, etc.. The server will contain a database with available courses. The users of the application can search for a specific course by its name and register in one or more courses.
 
-## Competencias e implementación
+## Competencies and implementation
 ---------------------------
 
-El objetivo principal es la implementación de APIs tipo REST y el desarrollo de una aplicación web utilizando AJAX y el modelo SPA.
-Una aplicación SPA (*Single Page Application*) es una aplicación web cbontenida en un úncio documento HTML. Los componentes de este documento de muestran u ocultan a medida que el usuario interactúa con la aplicación web.
+The main objective is the implementation of REST APIs and the development of a web application using AJAX and the SPA model.
+A SPA (*Single Page Application*) is a web application contained in a single HTML document. The components of this document are shown or hidden as the user interacts with the web application.
 
-También se hace hincapié en el correcto diseño de la API RESTful y su implementación en *Express.js*. Por otro lado, el servidor funciona a través del protocolo HTTPS.
+Emphasis is also placed on the correct design of the RESTful API and its implementation in *Express.js*. On the other hand, the server works through the HTTPS protocol.
 
-Se ha hecho uso de tecnologías como Bootstrap para facilitar el posicionamiento de los elementos y de bases de datos relacionales con *MySQL* gestinado a través de *PhpMyAdmin*.
+We have made use of technologies such as Bootstrap to facilitate the positioning of the elements and relational databases with *MySQL* managed through *PhpMyAdmin*.
 
-## Resumen de la estructura del proyecto por carpetas
+## Summary of the project structure by folder
 ---------------------------
 
-**helpers:** conjunto de métodos que ayudan a formar la vista y que, mayoritariamente, son comunes a gran parte del proyecto.
+**Helpers:** set of methods that help to form the view and that, for the most part, are common to most of the project.
 
-**integration:** aquí se almacenan los Data Access Object que recuperan e insertan información a la base de datos (pues se encuentran en la capa de integración).
+**integration:** here are stored the Data Access Objects that retrieve and insert information to the database (as they are in the integration layer).
 
-**nbproject:** ficheros internos que usa *NetBeans* (IDE utilizado para el desarrollo de la aplicación).
+**nbproject:** internal files used by *NetBeans* (IDE used for the development of the application).
 
-**node_modules:** módulos utilizados por *Node* (lado del servidor).
+**node_modules:** modules used by *Node* (server side).
 
-**public:** aquí se encuentran los ficheros públicos del proyecto, es decir, aquellos recursos necesarios que son directamente expuestos ante el cliente. Algunos ficheros contenidos son: la página *index*, bibliotecas como jQuery, el CSS de la aplicación, imágenes usadas, etc.
+**public:** here are the public files of the project, that is to say, those necessary resources that are directly exposed to the client. Some of the files contained are: the *index* page, libraries like jQuery, the CSS of the application, used images, etc.
 
-**routes:** contenedor de los routers. Un route es como una mini-aplicación web con sus propias rutas y su propia cadena de middlewares. En este caso, tan sólo tenemos dos router: users y cursos.
+**routes:** routers container. A route is like a mini-web application with its own routes and its own middleware chain. In this case, we only have two routers: users and courses.
 
-El resto de ficheros contienen información acerca del proyecto (.json), la base de datos utilizada (.sql), la certificación para el uso del protocolo HTTPS o el punto de entrada en el flujo de ejecución de la aplicación (app.js).
+The rest of the files contain information about the project (.json), the database used (.sql), the certification for the use of the HTTPS protocol or the entry point in the application execution flow (app.js).
 
-## Guía básica de uso
----------------------------
+## Basic user guide
+----------------------
 
-Al entar en el planificador ya podemos consultar los cursos disponibles sin necesidad de estar registrados. Ahora bien, si lo que queremos es tener una buena organización y poder inscribirnos en los cursos, entonces sí es necesario tener una cuenta.
+When you enter the planner you can consult the available courses without having to be registered. However, if what we want is to have a good organization and to be able to enroll in the courses, then it is necessary to have an account.
 
-Cuando hacemos la búsqueda de cursos, dicha búsqueda realiza una comprobación en la base de datos y muestra todos los cursos que contengan, en su título, la cadena buscada. Si por ejemplo buscamos *cocina*, apareceran todos los resultados que contengan esa palabra.
+When we search for courses, this search performs a check in the database and shows all the courses that contain, in their title, the searched string. For example, if we search for *cooking*, all the results that contain that word will appear.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen1.png)
 
-Si pinchamos sobre un curso podemos ver información acerca del mismo, pero como es lógico, no nos dejará inscribirnos hasta que no estemos registrados.
+If we click on a course we can see information about it, but as it is logical, it will not let us register until we are not registered.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen2.png)
 
-Una vez registrados, podemos empezar a crear cursos que puedan interesar a otro usuarios de la aplicación. Además, el sistema organiza los cursos de tal forma que sea fácil para el usuario consultar los cursos que ya ha terminado, los que está cursando actualmente y qué horario tiene establecido para cada semana.
+Once registered, we can start creating courses that may be of interest to other users of the application. In addition, the system organizes the courses in such a way that it is easy for the user to consult the courses they have already completed, the ones they are currently taking and what timetable they have set for each week.
 
 ![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Planificador%20de%20cursos/images/imagen3.png)
