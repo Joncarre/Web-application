@@ -1,72 +1,88 @@
 <!--Creado por Jonathan Carrero Aranda -->
 
-**Saboteur**
+**Saboteur** 🎮
 ==============
 ----------
 
-This project consists of the development of a web portal that allows users to play online a board game called *Saboteur*. In this portal, a user will be able to create a user account, create new games, join games already created by others and, obviously, play in them.
+This project consists of the development of a web portal that allows users to play online a board game called *Saboteur*. In this portal, a user will be able to create a user account 👤, create new games 🆕, join games already created by others 🤝 and, obviously, play in them 🕹️.
 
-## Competencies and implementation
+## Competencies and implementation 💻
 ---------------------------
 
 Web page design using HTML and CSS, plus a web server implementation using *Node* and *Express.js*. Unlike the Planner, the use of *Bootstrap* is not allowed in the development of the game.
 
-## Summary of the project structure by folder
+## Summary of the project structure by folder 📁
 ---------------------------
 
-**controllers:** are the files where the collection of requests made by the user to the server as he/she interacts with the application is carried out.
+*   **controllers:** Files handling user requests to the server.
+*   **Helpers:** Reusable methods for view generation, common across the project.
+*   **integration:** Data Access Objects (DAOs) for database interactions (retrieving/inserting data).
+*   **middlewares:** Core *Express.js* functions processing requests and responses.
+*   **nbproject:** Internal files used by *NetBeans* IDE.
+*   **public:** Publicly accessible files (index page, CSS, images, fonts, etc.).
+*   **views:** `.ejs` files mixing data (model) with HTML (view) for game representation.
 
-**Helpers:** set of methods that help to form the view and that, mostly, are common to a great part of the project.
+The rest of the files contain project metadata (`.json`), the database schema (`.sql`), or the application entry point (`app.js`).
 
-**integration:** Data Access Objects that retrieve and insert information to the database are stored here (as they are in the integration layer).
-
-**middlewares:** is the division on which *Express.js* is based. A middleware is a function that receives a *request* object with the user's request data and a *response* object with the response accumulated so far. During execution, a middleware can read/modify both objects.
-
-**nbproject:** internal files used by *NetBeans* (IDE used for application development).
-
-**public:** here are the public files of the project, that is to say, those necessary resources that are directly exposed to the client. Some of the files contained are: the *index* page, fonts, the CSS of the application, images used, etc.
-
-**views:** are the .ejs files, which will mix the model (data) with the view (HTML) to be properly represented when we are playing.
-
-The rest of the files contain information about the project (.json), the database used (.sql) or the entry point in the application execution flow (app.js).
-
-## Basic user guide
+## Basic user guide 📖
 ----------------------
 
-In this game each player takes the role of a dwarf searching for gold in a mine. The mine is represented as a board with seven rows and seven columns. 
+In this game, each player takes the role of a dwarf searching for gold 💰 in a mine ⛏️. The mine is represented as a board with seven rows and seven columns.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s1.png)
+<p align="center">
+<img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s1.png" alt="Game Board Start" style="border-radius: 15px;">
+</p>
 
-The players start from a starting square which is located in the cell located in the middle row, first column. In the last column (rows 2a, 4a and 6a) there are three destination cells. Initially the contents of these cells are unknown. The only thing the players know is that one of them contains a gold nugget and the other two contain nothing.
+The players start from a starting square located in the middle row, first column. In the last column (rows 2, 4, and 6) there are three destination cells. Initially, the contents of these cells are unknown 🤔. The only thing the players know is that one of them contains a gold nugget ✨ and the other two contain nothing 🧱.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s2.png)
+<p align="center">
+<img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s2.png" alt="Destination Cells" style="border-radius: 15px;">
+</p>
 
-There are two classes of players: dwarf prospectors and dwarf saboteurs. Each player is given a role (seeker or saboteur) at the beginning of the game, and this role remains secret to the other players. Seekers and saboteurs have opposing objectives: 
+There are two classes of players: **dwarf prospectors** and **dwarf saboteurs**. Each player is given a role (seeker or saboteur) at the beginning of the game, and this role remains secret 🤫 to the other players. Seekers and saboteurs have opposing objectives:
 
-- Seekers aim to build grottoes along the board in order to reach the destination square containing the gold nugget.
-- The saboteurs have the objective of blocking and diverting the dwarf prospectors' caves so that they do not get the gold nugget.
+> *   **Seekers** aim to build tunnels along the board to reach the destination square containing the gold nugget.
+> *   **Saboteurs** aim to block and divert the prospectors' tunnels so they *do not* get the gold nugget.
 
 The game is played in turns. The player whose turn it is can do one of the following actions:
 
-- Place one of his cards on the board: to place one of his cards on the board it must be fulfilled (a) the grottoes of the new card fit with some of the grottoes already placed and (b) the new card must be reachable from the starting square.
+1.  **Place a path card on the board:**
+    *   The tunnels on the new card must connect correctly with tunnels on adjacent, already placed cards.
+    *   The new card must be reachable via a continuous path from the starting square.
+    <p align="center">
+    <img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s3.png" alt="Placing a Path Card" style="border-radius: 15px;">
+    </p>
+    *   After placing a card, the player draws a new card from the deck 🃏.
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s3.png)
+2.  **Discard a card:**
+    *   Each player starts with a hand of cards (the exact number depends on the player count, the description mentions 7 cards out of 15 possible types, which might need clarification - typically it's a hand limit and drawing from a larger deck).
+    *   The player chooses a card from their hand to discard face-down.
+    *   The player then draws a new card from the deck 🃏.
+    <p align="center">
+    <img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s4.png" alt="Discarding a Card" style="border-radius: 15px;">
+    </p>
 
-After having placed a card, the player will receive a new randomly generated card.
+3.  **Use an action card:**
+    *   **Map (Magnifying glass 🔍):** Secretly look at one of the three destination cards.
+    *   **Rockfall (Explosive 💥):** Remove a path card from the board (cannot remove start or destination cards).
+    *   **Break Tool (Broken Pickaxe 🛠️):** Play on another player to prevent them from playing path cards.
+    *   **Fix Tool (Fixed Pickaxe ✨):** Play on a player (including yourself) affected by a corresponding broken tool card to remove the restriction.
+    <p align="center">
+    <img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s5.png" alt="Using Action Cards" style="border-radius: 15px;">
+    </p>
 
-- Discard one of his/her cards: Each player is dealt a total of 7 cards out of the 15 possible cards he/she can play. The player will discard one of his/her cards (the one he/she wishes), and will then receive another randomly generated card.
+All this is managed by a login system that allows users to consult at any time:
+*   Games they are currently playing ⏳
+*   Games that have been created and are available to join 🚪
+*   Finished games (showing the result - win/loss) 🏆
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s4.png)
+<p align="center">
+<img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s6.png" alt="Game Lobby/Management" style="border-radius: 15px;">
+</p>
 
-- Use a special card between magnifying glass (look at a square on the board), explosive (break a grotto card), break tool (block a player) or fix tool (unblock a player).
+At any time, a user can create their own game (and participate as a player).
 
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s5.png)
-
-All this is managed by a login system that allows users to consult at any time the games they are playing, the games that have been created and that they can join and the games already finished (with the result if they won or not).
-
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s6.png)
-
-At any time, a user could create his own game (in which he would participate as if he were another player).
-
-![enter image description here](https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s7.png)
+<p align="center">
+<img src="https://github.com/Joncarre/Programacion-web/blob/master/Juego%20Saboteur/images/s7.png" alt="Creating a New Game" style="border-radius: 15px;">
+</p>
 
