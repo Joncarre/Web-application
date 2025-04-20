@@ -28,3 +28,6 @@ This repository showcases a collection of web application projects developed usi
 If you have any questions, feedback, or suggestions regarding these projects, please feel free to reach out!
 
 Best regards! ✨
+
+---
+*Created by Jonathan Carrero*
